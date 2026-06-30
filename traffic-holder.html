@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traffic Button Holder</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Traffic Holder</title>
     <style>
         body {
             margin: 0;
@@ -13,17 +13,20 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-family: sans-serif;
+            min-height: 80px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-        /* Bạn có thể tùy chỉnh thêm CSS cho nút bấm tại đây nếu cần */
+        .alert_btn-no, .traffic-button-no {
+            width: 100%;
+            max-width: 320px;
+            margin: 5px auto;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <!-- 2 Div chứa nút bấm của bạn -->
     <div class="alert_btn-no text-center" id="alert_btn-no"></div>
     <div class="traffic-button-no text-center" id="traffic-button-no"></div>
-
-    <!-- Script Traffic -->
     <script src="https://best-traffic.pages.dev/traffic_no.js"></script>
 </body>
 </html>

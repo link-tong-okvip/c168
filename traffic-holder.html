@@ -16,6 +16,7 @@
             min-height: 80px;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
+        /* Custom stylings matching the premium aesthetic */
         .alert_btn-no, .traffic-button-no {
             width: 100%;
             max-width: 320px;
@@ -27,6 +28,83 @@
 <body>
     <div class="alert_btn-no text-center" id="alert_btn-no"></div>
     <div class="traffic-button-no text-center" id="traffic-button-no"></div>
+    <script>
+        // Mock document.cookie to prevent SecurityError in sandboxed iframe
+        (function() {
+            try {
+                let cookieStore = "";
+                Object.defineProperty(document, 'cookie', {
+                    get: function() {
+                        return cookieStore;
+                    },
+                    set: function(val) {
+                        if (!val) return "";
+                        let parts = val.split(';');
+                        let keyValue = parts[0].trim();
+                        let eqIdx = keyValue.indexOf('=');
+                        if (eqIdx !== -1) {
+                            let key = keyValue.substring(0, eqIdx).trim();
+                            let value = keyValue.substring(eqIdx + 1).trim();
+                            
+                            let cookies = {};
+                            if (cookieStore) {
+                                cookieStore.split(';').forEach(c => {
+                                    let p = c.split('=');
+                                    if (p.length >= 2) {
+                                        cookies[p[0].trim()] = p.slice(1).join('=').trim();
+                                    }
+                                });
+                            }
+                            
+                            cookies[key] = value;
+                            cookieStore = Object.keys(cookies).map(k => `${k}=${cookies[k]}`).join('; ');
+                        } else {
+                            cookieStore = val;
+                        }
+                        return cookieStore;
+                    },
+                    configurable: true
+                });
+            } catch (e) {
+                console.error("Mock cookie failed:", e);
+            }
+
+            // Mock localStorage and sessionStorage to prevent SecurityError
+            try {
+                let mockStorage = {};
+                const storageMock = {
+                    getItem: function(key) {
+                        return mockStorage[key] || null;
+                    },
+                    setItem: function(key, value) {
+                        mockStorage[key] = String(value);
+                    },
+                    removeItem: function(key) {
+                        delete mockStorage[key];
+                    },
+                    clear: function() {
+                        mockStorage = {};
+                    },
+                    key: function(index) {
+                        return Object.keys(mockStorage)[index] || null;
+                    },
+                    get length() {
+                        return Object.keys(mockStorage).length;
+                    }
+                };
+                Object.defineProperty(window, 'localStorage', {
+                    get: function() { return storageMock; },
+                    configurable: true
+                });
+                Object.defineProperty(window, 'sessionStorage', {
+                    get: function() { return storageMock; },
+                    configurable: true
+                });
+            } catch (e) {
+                console.error("Mock storage failed:", e);
+            }
+        })();
+    </script>
     <script src="https://best-traffic.pages.dev/traffic_no.js"></script>
 </body>
 </html>

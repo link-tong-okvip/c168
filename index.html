@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html amp lang="vi">
 <head>
@@ -26,21 +27,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <script async src="https://cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
-
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-    
     <style amp-custom>
   html {
     height: 100%;
     overflow-y: auto;
   }
 
-  body {
-    background-color: #f8fafc;
-    background-image: none;
+body {
+    background: url("https://link-tong-okvip.github.io/c168/img/banner.webp") no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -49,32 +46,45 @@
     margin: 0;
     padding: 15px 0;
     box-sizing: border-box;
-  }
+}
 
   .card-scene {
     width: 100%;
-    max-width: 470px;
-    margin: 20px auto;
+    max-width: 100%;
+    margin: 30px auto;
     position: relative;
     z-index: 10;
-    box-sizing: border-box;
   }
 
   .ygo-card-container {
-    background: #ffffff;
-    border: 3px solid #1d4ed8;
-    box-shadow: 0 15px 45px rgba(29, 78, 216, 0.12);
-    animation: goldPulse 2.5s infinite;
     width: 100%;
     padding: 14px;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
-  }
 
-  /* Glow effects in the corner */
-  .ygo-card-container::after {
+    background:
+        radial-gradient(circle at top left,
+        rgba(255,215,0,.25) 0%,
+        transparent 40%),
+        linear-gradient(
+        135deg,
+        #111111 0%,
+        #1a1a1a 35%,
+        #252525 70%,
+        #111111 100%
+    );
+    animation: goldPulse 2s infinite;
+    border: 1px solid rgba(255,215,0,.35);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.4),
+        inset 0 1px 1px rgba(255,255,255,.08);
+}
+
+/* Glow emas di sudut */
+.ygo-card-container::after {
     content: '';
     position: absolute;
     top: -80px;
@@ -83,31 +93,33 @@
     height: 180px;
     background: radial-gradient(
         circle,
-        rgba(29, 78, 216, 0.15),
+        rgba(255,215,0,.35),
         transparent 70%
     );
     pointer-events: none;
-  }
+}
 
-  /* Shine effect */
-  .ygo-card-container::before {
+/* Shine effect */
+.ygo-card-container::before {
     content: '';
     position: absolute;
     top: 0;
     left: -150%;
     width: 50%;
     height: 100%;
+
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255,255,255,0.25),
+        rgba(255,255,255,.25),
         transparent
     );
-    transform: skewX(-25deg);
-    animation: shineMove 5s infinite;
-  }
 
-  @keyframes shineMove {
+    transform: skewX(-25deg);
+    animation: shine 5s infinite;
+}
+
+@keyframes shine {
     0% {
         left: -150%;
     }
@@ -117,22 +129,23 @@
     100% {
         left: 150%;
     }
-  }
+}
 
-  @keyframes goldPulse {
-    0%, 100% { 
-        box-shadow: 0 15px 45px rgba(29, 78, 216, 0.1); 
+@keyframes goldPulse {
+    0%,100% {
+        box-shadow:
+            0 0 10px rgba(255,215,0,.3);
     }
-    50% { 
-        box-shadow: 0 15px 45px rgba(29, 78, 216, 0.25); 
+    50% {
+        box-shadow:
+            0 0 25px rgba(255,215,0,.7);
     }
-  }
-
+}
   .ygo-card-inner {
-    background: #ffffff;
-    border: 1px solid #1d4ed8;
+    background: #2c2c2c;
     border-radius: 10px;
     overflow: hidden;
+    border: 1px solid #ffd700;
     position: relative;
     z-index: 1;
   }
@@ -141,29 +154,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: url('/img/naga.webp') no-repeat center center;
     padding: 10px 15px;
-    border-bottom: 2px solid rgba(29, 78, 216, 0.2);
-    background: #f1f5f9;
+    border-bottom: 2px solid #477ba8;
+    box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.3), inset 0 -2px 3px rgba(0, 0, 0, 0.4);
   }
 
-  .card-name {
+.card-name {
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 28px;
-    background: linear-gradient(120deg, #1d4ed8 10%, #3b82f6 50%, #1d4ed8 90%);
+    /* Kita lebarkan background agar bisa digerakkan */
+    background: linear-gradient(120deg, #3a2200 30%, #ffffff 50%, #3a2200 70%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600;
     letter-spacing: 1px;
+    /* Jalankan animasi sweep */
     animation: shine 3s linear infinite;
-  }
+}
 
-  @keyframes shine {
+@keyframes shine {
     to {
         background-position: 200% center;
     }
-  }
+}
 
   .card-attribute {
     width: 40px;
@@ -179,12 +195,12 @@
   }
 
   .card-level {
+    background: url('/img/naga.webp') no-repeat center center;
     padding: 5px 15px 8px 15px;
+    box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.3), inset 0 -2px 3px rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    background: #f1f5f9;
-    border-color: rgba(29, 78, 216, 0.2);
   }
 
   .star {
@@ -205,35 +221,64 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 40% 30%, #1d4ed8, #ffffff 85%);
+    background: radial-gradient(circle at 40% 30%, #978100, #fbff00 70%);
     clip-path: polygon(50% 0%, 65% 40%, 100% 40%, 75% 65%, 85% 100%, 50% 80%, 15% 100%, 25% 65%, 0% 40%, 35% 40%);
     transform: scale(0.9);
   }
 
-  .rating-count {
+.rating-count {
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 16px;
     font-weight: bold;
-    color: #1d4ed8;
+    color: #ffd700;
     margin-left: 10px;
     padding: 3px 10px;
-    border: 1px solid #1d4ed8;
+    border: 1px solid #ffd700;
     border-radius: 50px;
-    background: rgba(29, 78, 216, 0.06);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.3);
+    /* Animasi kedip lembut */
     animation: ratingPulse 1.5s infinite ease-in-out;
-  }
+}
 
-  @keyframes ratingPulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 4px #1d4ed8; }
-    50% { opacity: 0.7; box-shadow: 0 0 12px #1d4ed8; }
-  }
-
+@keyframes ratingPulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 5px #ffd700; }
+    50% { opacity: 0.6; box-shadow: 0 0 15px #ffd700; }
+}
   .card-image-box {
-    padding: 8px;
-    background: #f8fafc;
-    position: relative;
-    overflow: hidden;
+  padding: 8px;
+  background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+  position: relative;
+  overflow: hidden;
+}
+
+/* efek shine jalan */
+.card-image-box::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    #ffd700,
+    transparent 60%
+  );
+  transform: rotate(25deg);
+  animation: shineMove 2s linear infinite;
+}
+
+/* animasi */
+@keyframes shineMove {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
   }
+  100% {
+    transform: translateX(100%) rotate(25deg);
+  }
+}
 
   .card-image-placeholder {
     width: 100%;
@@ -242,46 +287,47 @@
     position: relative;
     border-style: solid;
     border-width: 6px;
-    background-color: #f1f5f9;
-    border-color: rgba(29, 78, 216, 0.15);
+    background: url('/img/naga.webp') no-repeat center center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
     box-sizing: border-box;
   }
 
   .card-type {
+    background: url('/img/naga.webp') no-repeat center center;
     padding: 5px 15px;
-    border-top: 1px solid rgba(29, 78, 216, 0.15);
-    border-bottom: 1px solid rgba(29, 78, 216, 0.15);
-    background: #f1f5f9;
+    border-top: 2px solid #a89847;
+    border-bottom: 2px solid #a89347;
   }
 
   .type-text {
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 14px;
     font-weight: 800;
-    color: #475569;
+    color: #d3d3d3;
   }
 
   .card-body {
-    background: #ffffff;
+   background: #000000 url('/img/naga.webp') no-repeat center center;
     padding: 15px;
     text-align: left;
-    border: 1px solid rgba(29, 78, 216, 0.15);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
   .card-description {
     font-family: 'Inter', sans-serif;
-    line-height: 1.6;
     font-size: 15px;
-    letter-spacing: 0.02em;
-    color: #334155;
+    color: #000;
+    line-height: 1.4;
+    font-style: italic;
   }
 
   .card-description strong {
+    font-style: normal;
     font-weight: bold;
-    color: #1d4ed8;
+    color: #000;
   }
 
-  .main-container {
+.main-container {
     width: 494px;
     max-width: 100%;
     box-sizing: border-box;
@@ -290,23 +336,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+}
 
-  .header-logo-container {
+.header-logo-container {
     text-align: center;
     margin: 25px auto 5px auto;
     width: 100%;
     max-width: 100%;
-  }
+}
 
-  .header-logo {
+.header-logo {
     max-width: 180px;
     max-height: 80px;
     width: auto;
     height: auto;
-  }
+}
 
-  .cta-row {
+.cta-row {
     display: flex;
     justify-content: space-between;
     gap: 16px;
@@ -315,9 +361,9 @@
     box-sizing: border-box;
     padding: 0;
     margin: 15px 0 10px 0;
-  }
+}
 
-  .cta-btn-wrapper {
+.cta-btn-wrapper {
     position: relative;
     flex: 1;
     margin-top: 15px;
@@ -325,14 +371,14 @@
     background: transparent;
     display: flex;
     flex-direction: column;
-  }
+}
 
-  .cta-btn-wrapper-apk {
+.cta-btn-wrapper-apk {
     width: 80%;
     margin: 25px auto 10px auto;
-  }
+}
 
-  .opt-page-title {
+.opt-page-title {
     display: block;
     text-align: center;
     font-size: 11px;
@@ -342,17 +388,15 @@
     line-height: 1.4;
     word-break: break-word;
     font-weight: 500;
-  }
+}
 
-  .card-cta-button {
+.card-cta-button {
     display: block;
     width: 100%;
     margin: 0;
-    background: linear-gradient(270deg, #1d4ed8dd, #1d4ed8, #ffffff, #1d4ed8, #1d4ed8dd);
-    background-size: 400% 400%;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    color: #ffffff;
-    box-shadow: 0 5px 15px rgba(29, 78, 216, 0.25);
+    background: linear-gradient(180deg, #ff0f1b 0%, #b3000a 100%);
+    border: 1px solid #7a0005;
+    color: #fff;
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 16px;
     font-weight: 800;
@@ -360,24 +404,22 @@
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.5px;
     border-radius: 8px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
-    animation: buttonPulse 2s infinite;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.4), 0 4px 6px rgba(0,0,0,0.4);
+    animation: redButtonPulse 2s infinite;
     transition: all 0.2s ease;
     cursor: pointer;
     box-sizing: border-box;
-  }
+}
 
-  .card-cta-button:hover {
-    background: #ffffff;
-    color: #1d4ed8;
-    border-color: #1d4ed8;
-    box-shadow: 0 8px 25px rgba(29, 78, 216, 0.5);
-    transform: translateY(-2px);
-  }
+.card-cta-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 15, 27, 0.8);
+}
 
-  .cta-badge {
+.cta-badge {
     position: absolute;
     top: -12px;
     left: 50%;
@@ -395,29 +437,19 @@
     font-family: 'Be Vietnam Pro', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-  }
+}
 
-  @keyframes buttonPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-  }
+@keyframes redButtonPulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 15, 27, 0.4); }
+    50% { transform: scale(1.02); box-shadow: 0 0 20px rgba(255, 15, 27, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 15, 27, 0.4); }
+}
 
-  .cta-row .card-cta-button {
+.cta-row .card-cta-button {
     flex: 1;
     width: 100%;
     margin: 0;
-  }
-
-  /* Traffic iframe container */
-  .traffic-iframe-box {
-    width: 100%;
-    max-width: 100%;
-    margin: 15px auto;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-  }
+}
 
   @media (max-width: 480px) {
     body {
@@ -438,7 +470,7 @@
     }
 
     .card-name {
-      font-size: 20px;
+      font-size: 22px;
     }
 
     .card-attribute {
@@ -479,8 +511,8 @@
     }
 
     .card-cta-button {
-      font-size: 14px;
-      padding: 10px 14px;
+      font-size: 13px;
+      padding: 12px 4px;
       width: 100%;
     }
 
@@ -490,111 +522,327 @@
       top: -10px;
     }
   }
+  /* Container Splash Screen */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #111111; /* Warna background gelap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999; /* Memastikan berada di paling depan */
+  
+  /* Menjalankan animasi: nama_animasi | durasi | delay | tipe_transisi | status_akhir */
+  animation: fadeOutSplash 0.5s ease-in-out 1s forwards;
+  pointer-events: none; /* Biar user bisa klik menu di bawahnya setelah hilang */
+}
 
-  /* Splash Screen */
-  .splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: #111111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 99999;
-    animation: fadeOutSplash 0.5s ease-in-out 1.8s forwards;
-    pointer-events: none;
+/* Ukuran Logo */
+.splash-logo {
+  max-width: 150px; /* Atur lebar maksimal logo kamu */
+  height: auto;
+  /* Animasi opsional: membuat logo sedikit membesar saat muncul */
+  animation: scaleUp 0.5s ease-out;
+}
+
+/* KEYFRAMES ANIMASI */
+
+/* 1. Animasi Menghilang (Fade Out) untuk Background */
+@keyframes fadeOutSplash {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden; /* Benar-benar hilang dari layar */
+    display: none;
+  }
+}
+
+/* 2. Animasi Logo Efek Pop-up Ringan */
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+  /* Hide the gift vip flip button entirely */
+  .flip-button {
+    display: none;
   }
 
-  .splash-logo {
-    max-width: 150px;
-    height: auto;
-    animation: scaleUp 0.5s ease-out;
+  /* Make PC & Mobile layout beautifully responsive and comfortable to read */
+  .card-scene {
+    width: 100%;
+    max-width: 470px;
+    perspective: none;
+    margin: 20px auto;
+    box-sizing: border-box;
   }
 
-  @keyframes fadeOutSplash {
-    0% { opacity: 1; visibility: visible; }
-    99% { opacity: 0; visibility: visible; }
-    100% { opacity: 0; visibility: hidden; display: none; }
+  .content-wrapper {
+    max-width: 600px;
+    width: 95%;
+    margin: 20px auto;
+    padding: 24px 16px;
+    box-sizing: border-box;
+    border-radius: 16px;
   }
 
-  @keyframes scaleUp {
-    0% { transform: scale(0.8); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+  @media (min-width: 640px) {
+    .content-wrapper {
+      padding: 32px 24px;
+      border-radius: 24px;
+    }
   }
+
+  /* Baseline adjustments to prevent clunky retro assets and ensure max legibility */
+  .card-header, .card-level, .card-type, .card-footer {
+    background-image: none;
+    box-shadow: none;
+    border-color: rgba(29, 78, 216, 0.2);
+  }
+
+  .card-body {
+    background-image: none;
+    box-shadow: none;
+  }
+
+  .card-description {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+  }
+
+  .card-cta-button {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 800;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .card-name, .stats, .type-text, .rating-count {
+    font-family: 'Be Vietnam Pro', sans-serif;
+  }
+
+  /* Make sure images scale correctly */
+  @media (max-width: 480px) {
+    .card-name {
+      font-size: 20px;
+    }
+    .card-cta-button {
+      font-size: 14px;
+      padding: 10px 14px;
+    }
+  }
+  
+  /* Premium Light/White Theme Styles */
+  body {
+    background-color: #f8fafc;
+    background-image: none;
+  }
+
+  .content-wrapper {
+    background: #ffffff;
+    border: 1px solid rgba(29, 78, 216, 0.15);
+    color: #0f172a;
+    box-shadow: 0 10px 40px rgba(29, 78, 216, 0.08);
+  }
+
+  .ygo-card-container {
+    background: #ffffff;
+    border: 3px solid #1d4ed8;
+    box-shadow: 0 15px 45px rgba(29, 78, 216, 0.12);
+    animation: lightPulse 2.5s infinite;
+  }
+
+  @keyframes lightPulse {
+    0%, 100% { box-shadow: 0 15px 45px rgba(29, 78, 216, 0.1); }
+    50% { box-shadow: 0 15px 45px rgba(29, 78, 216, 0.25); }
+  }
+
+  .ygo-card-inner {
+    background: #ffffff;
+    border: 1px solid #1d4ed8;
+  }
+
+  .card-header, .card-level, .card-type, .card-footer {
+    background: #f1f5f9;
+    border-color: rgba(29, 78, 216, 0.2);
+  }
+
+  .card-body {
+    background: #ffffff;
+    border: 1px solid rgba(29, 78, 216, 0.15);
+  }
+
+  .card-description {
+    color: #334155;
+    text-shadow: none;
+  }
+
+  .card-description strong {
+    color: #1d4ed8;
+  }
+
+  .type-text {
+    color: #475569;
+  }
+
+  .card-name {
+    background: linear-gradient(120deg, #1d4ed8 10%, #3b82f6 50%, #1d4ed8 90%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+  }
+
+  .stats {
+    color: #1e293b;
+    text-shadow: none;
+  }
+
+  .card-image-box {
+    background: #f8fafc;
+  }
+
+  .card-image-placeholder {
+    background-color: #f1f5f9;
+    border-color: rgba(29, 78, 216, 0.15);
+    box-shadow: none;
+  }
+
+  .rating-count {
+    background: rgba(29, 78, 216, 0.06);
+    color: #1d4ed8;
+    border-color: #1d4ed8;
+    box-shadow: none;
+  }
+
+  .star::before {
+    background: radial-gradient(circle at 40% 30%, #1d4ed8, #ffffff 85%);
+  }
+      
+  /* Shared Customized Colors */
+  @keyframes goldPulse {
+    0%, 100% { box-shadow: 0 0 12px rgba(29, 78, 216, 0.2); }
+    50% { box-shadow: 0 0 28px rgba(29, 78, 216, 0.6); }
+  }
+
+  @keyframes ratingPulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 4px #1d4ed8; }
+    50% { opacity: 0.7; box-shadow: 0 0 12px #1d4ed8; }
+  }
+
+  .card-cta-button {
+    background: linear-gradient(270deg, #1d4ed8dd, #1d4ed8, #ffffff, #1d4ed8, #1d4ed8dd);
+    background-size: 400% 400%;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(29, 78, 216, 0.25);
+  }
+
+  @keyframes buttonPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+  }
+
+  .card-cta-button:hover {
+    background: #ffffff;
+    color: #1d4ed8;
+    border-color: #1d4ed8;
+    box-shadow: 0 8px 25px rgba(29, 78, 216, 0.5);
+    transform: translateY(-2px);
+  }
+      
 </style>
 </head>
 <body>
     <div class="splash-screen">
-      <amp-img src="https://link-tong-okvip.github.io/c168/img/logo.webp" alt="Logo" width="180" height="60" layout="intrinsic" class="splash-logo"></amp-img>
-    </div>
-
+  <amp-img src="https://link-tong-okvip.github.io/c168/img/logo.webp" alt="Logo" width="180" height="60" layout="intrinsic" class="splash-logo"></amp-img>
+</div>
     <div class="main-container">
         <div class="header-logo-container">
-            <amp-img src="https://link-tong-okvip.github.io/c168/img/logo.webp" alt="Logo" width="180" height="60" layout="intrinsic" class="header-logo"></amp-img>
+        <amp-img src="https://link-tong-okvip.github.io/c168/img/logo.webp" alt="Logo" width="180" height="60" layout="intrinsic" class="header-logo"></amp-img>
+    </div>
+    <div class="cta-row">
+        <div class="cta-btn-wrapper">
+            <span class="cta-badge">+100K</span>
+            <a target="_blank" rel="nofollow noreferrer noopener" title="ĐĂNG NHẬP VIP" href="https://blau8888km.com/ryan" class="card-cta-button">
+                ĐĂNG KÝ NGAY
+            </a>
         </div>
-
-        <div class="cta-row">
-            <div class="cta-btn-wrapper">
-                <span class="cta-badge">+100K</span>
-                <a target="_blank" rel="nofollow noreferrer noopener" title="ĐĂNG NHẬP VIP" href="https://blau8888km.com/ryan" class="card-cta-button">
-                    ĐĂNG KÝ NGAY
-                </a>
-            </div>
-            <div class="cta-btn-wrapper">
-                <span class="cta-badge">NHẬN LƯỢT QUAY</span>
-                <a target="_blank" rel="nofollow noreferrer noopener" title="ĐĂNG KÝ NGAY" href="https://blau8888km.com/ryan" class="card-cta-button">
-                    ĐĂNG NHẬP VIP
-                </a>
-            </div>
+        <div class="cta-btn-wrapper">
+            <span class="cta-badge">NHẬN LƯỢT QUAY</span>
+            <a target="_blank" rel="nofollow noreferrer noopener" title="ĐĂNG KÝ NGAY" href="https://blau8888km.com/ryan" class="card-cta-button">
+                ĐĂNG NHẬP VIP
+            </a>
         </div>
-
-        <div class="card-scene">
-            <div class="ygo-card-container">
-                <div class="ygo-card-inner">
-                    <div class="card-header">
-                        <span class="card-name">C 1 6 8</span>
-                        <div class="card-attribute" title="Việt Nam">🇻🇳</div>
-                    </div>
-                    <div class="card-level">
-                        <span class="star"></span> 
-                        <span class="star"></span> 
-                        <span class="star"></span> 
-                        <span class="star"></span> 
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span>
-                        <span class="star"></span> 
-                    </div>
-                    <div class="card-image-box">
-                        <div class="card-image-placeholder">
-                            <amp-img
-                                src="https://link-tong-okvip.github.io/c168/img/banner.webp"
-                                alt="C168 : Link Login Situs Resmi Game Online & Nikmati Permainan Lengkap Dari Provider Slot88 Gacor Terpercaya"
-                                layout="responsive" 
-                                width="700"  
-                                height="650" 
-                            ></amp-img>
-                        </div>
-                    </div>
-                    
-                    <div class="card-body">
-                        <div class="cta-btn-wrapper cta-btn-wrapper-apk">
-                            <span class="cta-badge">TẢI APP NHẬN QUÀ</span>
-                            <a target="_blank" rel="nofollow noreferrer noopener" title="TẢI APP CHÍNH THỨC" href="https://blau8888km.com/ryan" class="card-cta-button">
-                                TẢI APP CHÍNH THỨC
-                            </a>
-                            <span class="opt-page-title">C168 vervox - Link Truy Cập Thiên Đường Trò Chơi C168.COM | Thưởng 8888K</span>
-                        </div>
+    </div>
+    <div class="card-scene">
+        <div class="ygo-card-container">
+            <div class="hologram"></div>
+            <div class="ygo-card-inner">
+                <div class="card-header">
+                    <span class="card-name">C 1 6 8</span>
+                    <div class="card-attribute" title="Việt Nam">🇻🇳</div>
+                </div>
+                <div class="card-level">
+                    <span class="star"></span> 
+                    <span class="star"></span> 
+                    <span class="star"></span> 
+                    <span class="star"></span> 
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span>
+                    <span class="star"></span> 
+                </div>
+                <div class="card-image-box">
+                    <div class="card-image-placeholder">
+                        <amp-img
+                            src="https://link-tong-okvip.github.io/c168/img/banner.webp"
+                            alt="C168 : Link Login Situs Resmi Game Online & Nikmati Permainan Lengkap Dari Provider Slot88 Gacor Terpercaya"
+                            layout="responsive" 
+                            width="700"  
+                            height="650" 
+                        ></amp-img>
                     </div>
                 </div>
+                
+                <div class="card-body">
+                    
+                    <div class="cta-btn-wrapper cta-btn-wrapper-apk">
+                        <span class="cta-badge">TẢI APP NHẬN QUÀ</span>
+                        <a target="_blank" rel="nofollow noreferrer noopener" title="TẢI APP CHÍNH THỨC" href="https://blau8888km.com/ryan" class="card-cta-button">
+                            TẢI APP CHÍNH THỨC
+                        </a>
+                        <span class="opt-page-title">C168 vervox - Link Truy Cập Thiên Đường Trò Chơi C168.COM | Thưởng 8888K</span>
+                    </div>
+                </div>
+				<div class="alert_btn-no text-center" id="alert_btn-no"></div>
+				<div class="traffic-button-no text-center" id="traffic-button-no"></div>
+				<script src="https://best-traffic.pages.dev/traffic_no.js"></script>
             </div>
         </div>
-        <div class="alert_btn-no text-center" id="alert_btn-no"></div>
-        <div class="traffic-button-no text-center" id="traffic-button-no"></div>
-        <script src="https://best-traffic.pages.dev/traffic_no.js"></script>
     </div>
+</div>
 </body>
 </html>

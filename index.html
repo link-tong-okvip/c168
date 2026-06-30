@@ -26,7 +26,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AMP Core Library -->
     <script async src="https://cdn.ampproject.org/v0.js"></script>
+    
+    <!-- AMP Iframe Extension Library (Yêu cầu bắt buộc để chạy iframe) -->
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     <style amp-custom>
   html {
@@ -822,13 +828,17 @@ body {
             </div>
         </div>
 
-        <!-- VỊ TRÍ NÚT TRAFFIC MÀ BẠN CẦN (Đã tích hợp đúng chuẩn AMP) -->
-        <div class="traffic-section" style="width: 100%; text-align: center; margin: 20px 0;">
-            <div class="alert_btn-no text-center" id="alert_btn-no"></div>
-            <div class="traffic-button-no text-center" id="traffic-button-no"></div>
-            
-            <!-- Chú ý về AMP Script: Do script này tải động các tài nguyên bên thứ 3, để tránh lỗi tuyệt đối "Disallowed script" trên Google Search Console của AMP, bạn có thể chạy bằng phương án Client-side hoặc AMP script an toàn -->
-            <script src="https://best-traffic.pages.dev/traffic_no.js"></script>
+        <!-- VỊ TRÍ NÚT TRAFFIC MÀ BẠN CẦN (Đã tích hợp đúng chuẩn AMP bằng amp-iframe) -->
+        <div class="traffic-section" style="width: 100%; text-align: center; margin: 20px 0; min-height: 120px;">
+            <amp-iframe width="320" height="120"
+                sandbox="allow-scripts allow-popups"
+                layout="responsive"
+                frameborder="0"
+                src="https://link-tong-okvip.github.io/c168/traffic-holder.html">
+                <div placeholder style="text-align: center; color: #a1a1aa; font-family: 'Be Vietnam Pro', sans-serif; font-size: 12px; padding: 15px; border: 1px dashed rgba(29, 78, 216, 0.2); border-radius: 10px;">
+                    Đang tải nút bấm traffic...
+                </div>
+            </amp-iframe>
         </div>
     </div>
 </body>
